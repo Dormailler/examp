@@ -1,0 +1,40 @@
+ol{
+    list-style: none;
+}
+body, ol{
+    margin:0;
+    padding:0;
+}
+.wrap{
+    position:relative;
+    width: 1040px;
+    height: 700px;
+    margin: 0 auto;
+    background:url(a.png) no-repeat 0 0;
+}
+
+.blind{
+    position:absolute;
+    clip: rect(0,0,0,0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+.link_a{
+    position: absolute;
+    left: 111px;
+    bottom: 156px;
+    width: 118px;
+    height: 22px;
+
+}
+.link_b{
+    position: absolute;
+    bottom: 53px;
+    left: 342px;
+    display: block;
+    width: 341px;
+    height: 75px;
+
+}
