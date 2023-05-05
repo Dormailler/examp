@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1단 레이아웃</title>
+</head>
+<style>
+    html,body,.wrap{
+        height: 100%;
+    }
+    .header{
+        height: 100px;
+        background-color: lightgreen;
+    }
+    .container{
+        display:table;
+        table-layout: fixed;
+        width:800px;
+        margin: -100px auto;
+        min-height: 100%;
+        padding: 100px 0;
+        box-sizing: border-box;
+
+    }
+    .content{
+        display: table-cell;
+        width: 500px;
+        height: 300px;
+        background-color: lightsalmon;
+        border-right: 5px solid black; 
+    }
+    .aside{
+        display: table-cell;
+        width: 300px;
+        height: 300px;
+        background-color: lightseagreen;
+    }
+    .footer{
+        height: 100px;
+        background-color: lightblue;
+    }
+    .box{
+        width: 300px;
+        height: 300px;
+        background-color: red;
+    }
+</style>
+<body>
+    <div class="wrap">
+        <div class="header">header</div>
+        <div class="container">
+            <div class="content">
+                <div class="box">box</div>
+            </div>
+            <div class="aside">aside</div>
+        </div>
+        
+        <div class="footer">footer</div>
+    </div>
+</body>
+</html>
