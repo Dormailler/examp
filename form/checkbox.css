@@ -1,0 +1,37 @@
+input[type='checkbox'] { /* input 감추기 */
+    position: absolute;
+    overflow:hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    opacity: 0;
+}
+input[type='checkbox'] + label {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    width: 36px;
+    height: 21px;
+    border-radius: 10px;
+    background: #666;
+    vertical-align: top;
+    color: transparent;
+}
+input[type='checkbox'] + label:after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 19px;
+    height: 19px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+input[type='checkbox']:checked + label {
+    background-color: #62a7ee;
+}
+input[type='checkbox']:checked + label:after {
+    left: auto;
+    right: 1px;
+}
