@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes ani {
+	100% {
+		left: 300px;
+	    }
+    }
+    div {
+        position: relative;
+        top: 0;
+        left: 0;	
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+        line-height: 100px;
+        text-align: center;
+        color: #fff;
+        background-color: blue;
+        box-sizing: border-box;
+        animation: ani 2s linear 1; /* 1회 반복 */
+    }
+    .normal {
+        animation-direction: normal; /*  순방향 재생, 끝나면 처음 프레임부터 다시 시작 */
+    }
+    .reverse {
+        animation-direction: reverse; /* 역방향 재생, 끝나면 마지막 프레임부터 다시 시작 */
+    }
+    .alternate {
+        animation-direction: alternate; /* 순방향과 역방향으로 번갈아 재생 */
+    }
+    .a_reverse {
+        animation-direction: alternate-reverse; /* 역방향과 순방향으로 번갈아 재생 */
+    }
+    </style>
+</head>
+<body>
+    <div class="normal">normal</div>
+    <div class="reverse">reverse</div>
+    <div class="alternate">alternate</div>
+    <div class="a_reverse">a-reverse</div>
+</body>
+</html>

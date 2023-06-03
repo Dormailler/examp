@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes ani {
+	from {
+		left: 150px; /* 첫 키프레임 left:150px (backwards, both의 경우 미리 적용) */
+	}
+	to {
+		left: 300px;
+        }
+    }
+    div {
+        position: relative;
+        top: 0;
+        left: 0; /* 초기 스타일 left:0px */
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+        line-height: 100px;
+        text-align: center;
+        color: #fff;
+        background-color: blue;
+        box-sizing: border-box;
+        animation: ani 2s linear 1s; /* delay : 1s 적용*/
+    }
+    .none {
+        animation-fill-mode: none; /* 애니메이션 100% 도달 후 시작 키프레임 이동하고 속성 초기화 */
+    }
+    .forwards {
+        animation-fill-mode: forwards; /* 애니메이션 100% 도달 후 종료 키프레임 유지 */
+    }
+    .backwards {
+        animation-fill-mode: backwards; /* none과 동일하나 시작 키프레임 설정을 미리 적용(delay 적용 시) */
+    }
+    .both {
+        animation-fill-mode: both; /* forwards, backwards 둘다 적용 */
+    }
+    </style>
+</head>
+<body>
+    <div class="none">none</div>
+    <div class="forwards">forwards</div>
+    <div class="backwards">backwards</div>
+    <div class="both">both</div>
+</body>
+</html>

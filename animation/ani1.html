@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes ani {
+	to {
+		left: 300px;
+	    }
+    }
+    div {
+        position: relative;
+        top: 0;
+        left: 0;	
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        margin: 20px;
+        text-align: center;
+        color: #fff;
+        background-color: blue;
+        box-sizing: border-box;
+        animation: ani 2s linear forwards;
+    }
+    .half {
+        /* 0.5 */
+        animation-iteration-count: 0.5;
+    }
+    .normal {
+        /* normal(1회) */
+        animation-iteration-count: normal; 
+    }
+    .infinite {
+        /* infinite */
+        animation-iteration-count: infinite;
+    }
+    </style>
+</head>
+<body>
+    <div class="half">0.5</div>
+    <div class="normal">normal</div>
+    <div class="infinite">infinite</div>
+</body>
+</html>

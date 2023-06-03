@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.4.min.js"></script>
+    <style>
+        @keyframes ani {
+	from {
+		left: 150px; /* 첫 키프레임 left:150px (backwards, both의 경우 미리 적용) */
+	}
+	to {
+		left: 300px;
+        }
+    }
+    div {
+        position: relative;
+        top: 0;
+        left: 0; /* 초기 스타일 left:0px */
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+        line-height: 100px;
+        text-align: center;
+        color: #fff;
+        background-color: blue;
+        box-sizing: border-box;
+        animation: ani 2s linear 1s; /* delay : 1s 적용*/
+    }
+    .none {
+        animation-fill-mode: none; /* 애니메이션 100% 도달 후 시작 키프레임 이동하고 속성 초기화 */
+    }
+    .forwards {
+        animation-fill-mode: forwards; /* 애니메이션 100% 도달 후 종료 키프레임 유지 */
+    }
+    .backwards {
+        animation-fill-mode: backwards; /* none과 동일하나 시작 키프레임 설정을 미리 적용(delay 적용 시) */
+    }
+    .both {
+        animation-fill-mode: both; /* forwards, backwards 둘다 적용 */
+    }
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes ani {
+	25% {
+		top: 0;
+		left: 200px;
+    }
+	50% {
+		top: 200px;
+		left: 200px;
+	}
+	75% {
+		top: 200px;
+		left: 0;
+	}
+	100% {
+		top: 0;
+		left: 0;
+        }
+    }
+    div {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+        line-height: 100px;
+        text-align: center;
+        color: #fff;
+        background-color: blue;
+        animation: ani 4s infinite alternate; 
+        /* animation: name duration timing-function delay iteration-count direction fill-mode play-state; */
+    }
+    </style>
+</head>
+<body>
+    <button class="play">재생</button>
+    <button class="stop">멈춤</button>	
+    <div>Animation</div>
+
+<script>
+$(function(){
+  $('.play').click(function(){
+    // [재생] 버튼을 클릭하면 animation-play-state: running 속성 적용
+    $('div').css('animation-play-state','running');
+  });
+  $('.stop').click(function(){
+  // [멈춤] 버튼을 클릭하면 animation-play-state: paused 속성 적용
+    $('div').css('animation-play-state','paused');
+  });
+});
+</script>
+</body>
+</html>
+</body>
+</html>
