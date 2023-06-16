@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>클릭횟수 : 0</span>
+    <button id="btn">클릭하세요</button>
+<script>
+    let counter = 0;
+    const button = document.querySelector("#btn");
+    const span = document.querySelector("span");
+    button.addEventListener('click',function(){
+        counter++;
+        span.innerText = "클릭횟수 : " + counter;
+    })
+
+</script>
+</body>
+</html>
