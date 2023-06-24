@@ -8,31 +8,87 @@
 </head>
 <body>
     <div id="root"></div>
-    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-    <script>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        // const h3 = React.createElement(
+        //     "h3",
+        //     {
+        //         id:"title",
+        //         style:{color:"red"},
+        //         onMouseEnter : ()=>console.log("마우스 올림")
+        //     },
+        //     "span 태그"
+        // );
         const root = document.querySelector("#root");
-        const h3 = React.createElement(
-            "h3",
-            {
-                id:"title",
-                style:{color:"red"},
-                onMouseEnter : ()=>console.log("마우스 올림")
-            },
-            "span 태그"
-        );
-        const btn = React.createElement(
-            "button",
-            {
-                style: {
-                    backgroundColor : "tomato"
-                },
-                onClick: () => console.log("클릭했습니다.")
-            },
-            "클릭하세요"
-        );
-        const container = React.createElement("div",null,[h3,btn]);
-        ReactDOM.render(container,root);
+        // const App = ()=>( 
+        //     <div>
+        //         <h3>클릭횟수 : 0</h3>
+        //         <button>클릭하세요</button>
+        //     </div>
+        // );
+        
+        function MinutesToHours(){
+            const [amount, setAmount] = React.useState();
+            const [flipped, setFlipped] = React.useState(false);
+            const onChange= (event)=>{
+                setAmount(event.target.value);
+            }
+            const reset = () => {
+                setAmount(0);
+            }
+            const onFlip = () =>{
+                setFlipped((current) => !current);
+            }
+            return(
+                <div>
+                    <div>
+                        <label htmlFor="amount">분</label>
+                        <input 
+                            value={flipped? amount*60 : amount  } //onchange없으면 안바뀜
+                            id="amount" 
+                            type="number" 
+                            placeholder="분"
+                            onChange={onChange}
+                            disabled = {flipped}
+                        />
+                    </div>
+                    
+                    <h4>{flipped? "시간":"분"} 변환하기</h4>
+                    <div>
+                    <label htmlFor="hours">시간</label>
+                    <input 
+                        value={flipped? amount:Math.round(amount/60)} 
+                        id="hours" 
+                        type="number" 
+                        placeholder="시간"
+                        onChange={onChange}
+                        disabled = {!flipped} />
+                    </div>
+                    <button onClick={reset}>초기화</button>
+                    <button onClick={onFlip}>바꾸기</button>
+                </div>
+            );
+        }
+        function App(){
+            return(
+                    <div>
+                        <h1>변환기</h1>
+                        <MinutesToHours/>
+                    </div>
+                );
+        }
+        function KmToMiles(){
+            return(
+                <h3>킬로미터 -> 마일</h3>
+            );
+        }
+
+        ReactDOM.render(<App/>,root);
+        // const container = React.createElement("div",null,[Title,btn]);
+        // render();
     </script>
 </body>
 </html>
