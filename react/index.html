@@ -72,20 +72,29 @@
                 </div>
             );
         }
+        
+        function KmToMiles(){
+            return(
+                <h3>Km -> Miles</h3>
+            );
+        }
         function App(){
+            const [index,setIndex] = React.useState("0");
+            const onSelect = (event) =>{
+                setIndex(event.target.value);
+            }
             return(
                     <div>
                         <h1>변환기</h1>
-                        <MinutesToHours/>
+                        <select value={index} onChange={onSelect}>
+                            <option value="0">분 & 시간</option>
+                            <option value="1">Km & Miles</option>
+                        </select>
+                        <hr/>
+                        {index==="0" ? <MinutesToHours/>:<KmToMiles/> }
                     </div>
                 );
         }
-        function KmToMiles(){
-            return(
-                <h3>킬로미터 -> 마일</h3>
-            );
-        }
-
         ReactDOM.render(<App/>,root);
         // const container = React.createElement("div",null,[Title,btn]);
         // render();
