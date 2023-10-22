@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>드로그 앤 드롭 테스트</title>
+</head>
+<script>
+    window.onload = function(){
+        var color = document.getElementById("color");
+        var dropbox = document.getElementById("dropbox");
+
+        color.ondragstart = function(e){
+            e.dataTransfer.setData("text/plain",e.target.value);
+        }
+        dropbox.ondragover = function(e){
+            e.preventDefault();
+        }
+
+        dropbox.addEventListener("drop",function(e){
+            e.preventDefault();
+            e.target.style.backgroundColor = e.dataTransfer.getData("text/plain");
+        },false);
+
+    }
+</script>
+<style>
+    #color{
+        margin-bottom: 10px;
+
+    }
+    #dropbox{
+        width: 150px;
+        padding: 50px;
+        border: 1px solid blue;
+    }
+</style>
+<body>
+    <input type="color" id="color" draggable="true">
+    <div id="dropbox">이곳에 드랍하세요</div>
+</body>
+</html>
