@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){ 
+	$('div').html($('a').attr('href')+"<br>");
+	$('div').append($('a').prop('href')+"<br>");
+});
+</script>
+</head>
+<body>
+<a href = "a.jsp">이동</a><br>
+<input type = checkbox checked>	
+<div></div>
+</body>
+</html>

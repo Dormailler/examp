@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){ 
+	$('img:first').attr("src","/html/images/drinks.jpg");
+	$('img').attr("width","100");
+	$('img').attr("height","100");
+	$('img').css("border","2px solid orange");
+	$('img:last').attr({
+		src : "/html/images/americano.jpg",
+		alt : "커피"
+	});
+	//$('img:first').removeAttr("src");
+	//alert($('img:last').attr("src"));
+	//alert($('img').attr("src")); // 2개이상일때 첫번째꺼 나옴
+	$('img').each(function(i){ // 2개이상선택시 함수 모든 요소 적용 i 0부터
+		//alert((i+1) + "번쨰이미지 = " + this.src);
+		alert((i+1) + "번쨰이미지 = " + $(this).attr('src'));
+		alert((i+1) + "번쨰이미지 = " + $('img.eq('+ i + ')	'));//수정필요
+	});
+});
+</script>
+</head>
+<body>
+<img>
+<img>
+</body>
+</html>

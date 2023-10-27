@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){ 
+	let col_list = ['red','orange','yellow','green','blue','navy','purple'];
+	//css setter 여러개 서로 다르게 지정 반복
+	$('div').css("color",function(index){
+		return col_list[index % col_list.length];
+	});
+});
+</script>
+</head>
+<body>
+<div>1번째</div>
+<div>2번째</div>
+<div>3번째</div>
+<div>4번째</div>
+<div>5번째</div>
+<div>6번째</div>
+<div>7번째</div>
+<div>8번째</div>
+</body>
+</html>

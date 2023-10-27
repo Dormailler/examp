@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){ 
+	/* $('div').prepend('<h1>나는 어디에 생길까요?</h1>');
+	$('div, h1').css('background','yellow'); */
+	$('#btnclick').after('<h1 id="newh1">나는 어디에 생길까요?</h1>');
+	$('h1#newh1').on('click',function(){
+		$(this).text('나를 클릭했습니다.');	
+	})
+	/* $('#btnclick').on('click',function(){
+		$('#adding').append("<input type=button value ='추가버튼' id = 'newbtn'>");
+	}) */
+	//이벤트 발생 처리 결과로 생성 태그의 이벤트 처리
+	/* $('#adding').on('click', '#newbtn' ,function(){
+		$('#adding').html($(this).val()+ " 을 클릭하셨습니다.")
+	}) */
+	//btnclick 하면 adiing2 영역의 result 앞쪽에 버튼 추가 버튼value = 추가버튼1/2/3
+	// 추가버튼 1 클릭시 result 추가버튼1 클릭했습니다 출력
+	let count = 1;
+	$('#btnclick').on('click',function(){
+		$('#adding2').append("<input type=button value ='추가버튼"+ count +"' id = 'newbtn'>");
+		count++;
+	})
+	//input으로 바꾸고 위에 아이디 바꾸기 가능
+	$('#adding2').on('click', '#newbtn' ,function(){
+		$('#result	').html($(this).val()+ " 을 클릭하셨습니다.");
+	}) 
+	
+});
+</script>
+</head>
+<body>
+<input type=button value= "클릭" id="btnclick">
+<input type=button value= "중단" id="btnstop">
+<div id="adding"><h1>div 내부의 h1</h1></div>
+<div id="adding2"><div id="result"></div></div>
+</body>
+</html>

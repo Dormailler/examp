@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){ 
+	/*keydown-keypressed-keyup
+	
+	let total_len = parseInt($('h1').text());
+	
+	$('textarea').on('keyup',function(){
+		let str_len = $(this).val().length;
+		let remain_len = total_len - str_len;
+		$('h1').text(remain_len);
+		$('h2').css('color','blue');
+		if(remain_len <= 0){
+			$('h2').text('더이상 입력 불가능합니다.');
+			$('h2').css('color','red');
+			$(this).attr('readonly','readonly');
+		}
+	})
+	$('input[value=새로입력]').on('click',function(){
+		let jText = $('textarea');
+		jText.val('');	
+		jText.removeAttr('readonly');
+		jText.focus();
+		
+		$('h1').text(total_len);
+		$('h2').text("새로 입력 가능합니다");
+		$('h2').css("color",'blue');
+	})
+	//textarea 사용자 마우스 클릭 focus 함수 호출
+	$('textarea').on('focus',function(){
+		$(this).css()
+	})
+} 
+ $('h1:eq(1)').css('color','blue');
+	let ht;
+	$('textarea').on('keyup',function(){
+		ht = parseInt($('h1:eq(0)').text());
+		if(ht == 0){
+			$('h1:eq(0)').css('display','none');
+			$('h1:eq(1)').text("더이상 입력 불가능합니다.").css('color','red');
+			$(this).attr('readonly',true);
+		}
+		else{
+			$('h1:eq(0)').text(ht-1);
+			
+		}
+		
+	})
+	$('input[type=button]').on('click',function(){
+		$('textarea').val('').attr('readonly',false);
+		ht = 100;
+		$('h1:eq(0)').text(ht).css('display','inline');
+		$('h1:eq(1)').text('새로 입력 가능합니다');
+		$('h1:eq(1)').css('color','blue');
+	}) */
+});
+</script>
+</head>
+<body>
+<h1 style = "display:inline">10</h1>
+<h2 style = "display:inline">글자 입력 가능합니다</h2>
+<textarea rows=5 cols = 100 >    
+</textarea> 
+<input type=button value = "새로입력">
+<input type=text readonly = readonly checked=checked multiple=multiple>
+</body>
+</html>

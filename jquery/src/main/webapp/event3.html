@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){ 
+	$('#f_input').on('submit',function(event){
+		let titlelist = ['react','spring','db','ai'];
+		let title = $('input[name=title]').val();
+		let name = $('input[name=name]').val();
+		let findTitle = false;
+		// 과정명은 titlelist 중하나, 사용자명은 한글
+		let reg = /^[가-힣]+$/g;
+		for(let i = 0; i < titlelist.length; i++){
+			if(title == titlelist[i] && reg.test(name)){
+				findTitle = true;
+				break;
+			}
+		}
+		console.log(title + ":" +findTitle)
+		if(findTitle == false){
+			event.preventDefault();
+		}
+	});
+});
+</script>
+</head>
+<body>
+<form id="f_input" action = "a.jsp">
+사용자명 <input type=text name="name" style="display:none"><br>
+과정명 <input type=text name="title" ><br>
+<input type=submit value= "액션파일로이동">
+</form>
+</body>
+</html>

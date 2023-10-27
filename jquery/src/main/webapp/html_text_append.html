@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div.group{
+color:red;
+}
+</style>
+<script src = "js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){ 
+	//$("#contents").html($("#contents").html() + "후 추가");
+	//$("#contents").append("<h1>후 추가</h1>"); //위와 동일
+	//$("#contents").text("<h1>후 추가</h1>");
+	let div_inner = [];
+	
+	//getter 반복
+	/* $('div').each(function(index){
+		//alert(this.innerHTML);
+		div_inner.push($(this).html());
+	});
+	alert(div_inner.join("-"));
+	
+	//setter반복
+	$('div').html(function(index) {return (index+1) + "번 태그";}); */
+	
+	//class 속성 제어
+	$('.group').removeClass("group");
+	$('div:gt(3)').addClass('group');
+	
+});
+
+</script>
+</head>
+<body>
+<!-- <div id="contents">
+<input type=text value=jquery><br>
+</div> -->
+<div class = "group">1번째</div>
+<div class = "group">2번째</div>
+<div class = "group">3번째</div>
+<div>4번째</div>
+<div>5번째</div>
+
+
+</body>
+</html>

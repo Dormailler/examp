@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){ 
+	$('div').html('');
+	$('div').css('border','2px solid lightgreen');
+	
+	$('input:checkbox').each(function(index){
+		$('div').append($(this).attr('value')+"<br>");
+	})
+	$('div').html();
+	/* $('input:checkbox').on('click',function(){
+		//if($(this).prop('checked') == true){
+			$('div').html(
+					$(this).val() + ":" + $(this).attr('checked')
+					+ ":" + $(this).prop('checked')
+			);
+		//}
+	}) */
+	/* $('input:submit').on('click',function(e){
+		e.preventDefault();
+		$('div').html('');
+		$('input:checkbox').each(function(index){
+			if($(this).prop('checked')){
+				$('div').append($(this).attr('value')+"<br>");
+			}
+		})
+		$('div').append($('input:text').val());
+	}) */
+	$('form').on('submit',function(event){
+		event.preventDefault();
+		let check=[];
+		$('input:checked').each(function(){
+			check.push($(this).val() + ":" + $(this).prop('checked')+"<br>");
+		})
+		check.push($('input:text').val());
+		$('div').html(check);
+	})
+});
+</script>
+</head>
+<body>
+<select>
+<option>a1</option>
+<option selected>a2</option>
+<option>a3</option>
+</select>
+<h1>검색 대상과 검색어를 입력하세요.</h1>
+<form action="" id="searchform">
+	<input type=checkbox value="제목|내용|작성자"/>모두
+	<input type=checkbox value="제목"/>제목
+	<input type=checkbox value="내용"/>내용
+	<input type=checkbox value="작성자"/>작성자
+	<input type=text value="검색어를 입력하세요"/>
+	<input type=submit value="검색"/>
+</form>
+<div id='result'>여기에 결과를 보여요</div>
+</body>
+</html>

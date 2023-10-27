@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){ 
+	let count = 0;
+	let col_list = ['red','orange','yellow','green','blue','navy','purple']
+	$('h1').click(function(){
+		$('div').html("<h3>" + (++count) + "번 클릭하였습니다. </h3>");
+	});
+	$('h1').on('click',function(){
+		$(this).css('background',col_list[count%7]);
+	});
+	$('#stopbtn').on('click',function(){
+		$('h1').off('click');
+	});
+	$('#onebtn').one('click',function(){
+		alert('1번만 선물드립니다.');	
+	});
+	
+});
+</script>
+</head>
+<body>
+<h1>클릭하세요</h1>
+<div></div>
+<input type=button id="stopbtn" value="이벤트멈춤">
+<input type=button id="onebtn" value="선물을드립니다">
+</body>
+</html>
