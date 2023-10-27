@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+window.addEventListener('load',function(){
+	document.querySelector("#test").addEventListener('click',function(event){
+		document.querySelector("#result").innerHTML  =
+			event.type + ":" + event.target.tagName + " 이벤트 발생<br>" 
+			+ "x자표 = " +event.offsetX + ", y좌표 = " + event.offsetY + "<br>";
+	});
+	document.querySelector("#test").addEventListener('mousemove',function(event){
+		document.querySelector("#result").innerHTML  =
+			event.type + ":" + event.target.tagName + " 이벤트 발생<br>" 
+			+ "x자표 = " +event.offsetX + ", y좌표 = " + event.offsetY + "<br>";
+	});
+});
+</script>
+<div id="test">클릭해 보세요</div>
+<div id="result"></div>
+</body>
+</html>

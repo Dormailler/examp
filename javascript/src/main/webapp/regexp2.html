@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var br = "<br>";
+document.write(br);
+
+let reg1 = new RegExp("^[0-9]{3}-[0-9]{3,4}-[0-9]{4}"); // ^시작점 &끝점
+let tel ="010-222-3333";
+document.write(reg1.test(tel) + br);
+tel = "영10-2222-3333";
+document.write(reg1.test(tel) + br);
+tel = "0111-2222-3333";
+document.write(reg1.test(tel) + br);
+document.write(br);
+
+let reg2 = /^[a-zA-Z가-힣]{1}[a-zA-Z가-힣0-9]{1,10}@[a-zA-Z가-힣0-9]{1,5}(.com|.co.kr|.net)/; //{1,10} 1개이상10개이하
+let reg3 = /^https?:\/\/([a-zA-Z가-힣0-9]+\.?)+$/ //(http|https){1}
+window.onload = function(){ 
+	let valid = document.getElementById("valid");
+	valid.onclick = function(){
+		let myemail = document.getElementById("myemail");
+		let result = document.getElementById("result");
+		let target = myemail.value;
+		let myurl =  document.getElementById("myurl");
+		let target2 = myurl.value;
+		//result.innerHTML = reg2.test(target);
+		result.innerHTML = reg3.test(target2);
+	}
+	
+}
+//myurl 유효성 체크 http/https://로 시작 다음 문자+숫자(10자리) 유효성 체크
+</script>
+홈페이지<input type=email id="myurl" size=50><br> <!-- http,https시작 -->
+이메일<input type=email id="myemail" size=50><br> <!-- @ 포함 -->
+<input type=button id = "valid" value ="유효성검증">
+<div id="result"></div>
+</body>
+</html>

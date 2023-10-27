@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#outer{
+width:500px;
+height:50px;
+background-color:blue;
+}
+#inner{
+width:100px;
+background-color:red;
+font-size:32px;	
+}
+</style>
+</head>
+<body>
+<div id="outer">
+	<a id="inner" href = "array.html">이동</a>
+</div>
+<script type="text/javascript">
+let outer = document.querySelector('#outer');
+let inner = document.querySelector('#inner');
+outer.addEventListener('click',function(){
+	alert("a");        
+})
+inner.addEventListener('click',function(e){
+	alert("div");
+	e.stopPropagation();
+	e.preventDefault();
+	
+	
+})
+</script>
+</body>
+</html>

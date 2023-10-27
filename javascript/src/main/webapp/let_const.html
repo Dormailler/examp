@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var br = "<br>"
+//var j = 200;
+//const k = 300;
+function test(){
+	i = 1000; //전역변수 함수호출안하면 못씀
+	var j = 2000;
+	const k = 3000;
+	document.write(i+br);
+	document.write(j+br);
+	document.write(k+br);
+}
+test();
+document.write(i+br);
+document.write(j+br);
+document.write(k+br);
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+window.addEventListener('load',function(){
+	let phone = document.querySelector("#phone");
+	let result = document.querySelector("#result");
+	phone.addEventListener('keydown',function(e){
+		//alert(e.key + ":" + e.keyCode);
+		let k = e.key || e.keyCode;
+		if(e.keyCode >= 48 && e.keyCode <=57){
+			result.innerHTML = k + "적합";
+			result.style.color = 'green';
+		}
+		else if(k === 'Enter' || k === 13){
+			location.href = "a.jsp";
+		}
+		else{
+			result.innerHTML = k + "부적합";
+			result.style.color = 'red';
+		}
+	});
+});
+</script>
+<input type=text id="phone">
+<div id="result">결과표시</div>
+</body>
+</html>

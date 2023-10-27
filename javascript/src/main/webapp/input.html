@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+let val1 = prompt("아이디입력하세요");
+document.write(val1+"<br>");
+
+let val2 = confirm("입력한 내용이 맞습니까?");
+document.write(val2+"<br>"); 
+*/
+
+let val3 = prompt("나이를 입력하세요");
+document.write("내년에는 " + (parseInt(val3)+1) + "세가 되겠군요.");
+document.write(parseInt(123.456) + "<br>");
+document.write(parseInt("123사오육") + "<br>");
+document.write(parseInt("사오육123") + "dsdada" + "<br>");
+document.write(typeof(parseFloat(123.45678)) + "<br>");
+
+let age = 12.456778;
+let age2 = new Number(age);
+document.write(age.toFixed(2) + "<br>");
+document.write(age2.toFixed(2) + "<br>"); // 2째자리까지출력반올림
+
+let age3 = new Number("12삼사오");
+document.write(age3 + "<br>");
+
+if(isNaN("12삼사오")){
+	document.write("숫자 변환 불가 <br>");
+}else{
+	let age4 = new Number("12삼사오");
+	document.write(age4 + "<br>");
+}
+let now = new Date();
+document.write("<h3 style = color:green>" + now + "</h3>");
+document.write("<h3 style = color:red>" + now.toLocaleDateString() + "</h3>");
+document.write("<h3 style = color:blue>" + now.toLocaleTimeString() + "</h3>");
+document.write("<h3 style = color:orange>" + now.toLocaleString() + "</h3>");
+</script>
+</body>
+</html>

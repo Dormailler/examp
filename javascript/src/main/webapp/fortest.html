@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+let s = "javascript";
+let arr = ['a',100,undefined,3.14,[1,2,3],{x:10,y:10,r:5}];
+document.write("<hr>");
+for(p in s){
+	document.write(s[p] + "<br>");
+}
+for(p in arr){
+	document.write(arr[p] + "<br>");
+}
+for(p of s){
+	document.write(p + "<br>");
+}
+for(p of arr){
+	document.write(p + "<br>");
+}
+document.write("<hr>");
+</script>
+</body>
+</html>

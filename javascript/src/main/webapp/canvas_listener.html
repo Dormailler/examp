@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input type = radio id= one value="red" name="col">빨간색
+<input type = radio id= two value="green" name="col">녹색
+<input type = radio id= three value="blue" name="col">파란색
+<input type = radio id= four value="silver" name="col">회색
+<canvas id="mycanvas" width = "640" height="400" style = "border:2px solid pink"></canvas>
+<div id="state">????</div>
+
+<script type="text/javascript">
+window.onload = function(){
+	let cols = document.getElementsByName('col');
+	let state = document.querySelector("#state");
+	for(let i = 0; i< cols.length; i++){
+		cols[i].addEventListener('click',function(){
+			let canvas = document.getElementById('mycanvas');
+			let ctx = canvas.getContext("2d");
+			ctx.clearRect(50,50,200,100);
+			ctx.clearRect(400,50,200,100);
+			ctx.strokeStyle = this.value;
+			ctx.strokeRect(50,50,200,100);
+			ctx.fillStyle = cols[i].value;
+			ctx.fillRect(400,50,200,100);
+			state.innerHTML = `${this.nextSibling.nodeValue}을 선택하셨습니다.${this.value}`;
+
+		});
+	}
+	
+}
+
+</script>
+</body>
+</html>

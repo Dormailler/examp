@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<input type=button id="btn" value="this찾기">
+<div id="result"></div>
+<script type="text/javascript">
+var br = "<br>";
+function test1(){
+	document.write(Object.prototype.toString.call(this)+br);
+	document.write(this.constructor+br);
+	document.write((this instanceof Window)+br);
+}
+test1(); //Window
+
+let obj = {name : "홍길동", test2 : test1}
+obj.test2(); //Object
+
+document.getElementById("btn").onclick = function(){
+	document.getElementById("result").innerHTML = this.type + ":" + this.value; //button : this찾기
+	document.getElementById("result").style = "border:2px solid blue";
+};
+(function(){document.write(this + br);})(); //바로실행 위에 세미클론
+
+</script>
+</body>
+</html>

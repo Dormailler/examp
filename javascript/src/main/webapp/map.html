@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var br = "<br>";
+let a = new Object();
+a = {};
+
+let b = new Array(10);
+b = [];
+
+let c = "java";
+c = new String();
+
+let d = 12.345;
+d = new Number();
+
+document.write(br);
+
+let weather = new Map();
+weather.set("오늘","sunny");
+weather.set("내일","rainy");
+weather.set("어제","sunny");
+weather.set("어제","cloudy");
+
+document.write(weather.size+br);
+document.write(weather.get("어제")+br);
+
+for(let [key,value] of weather){
+	document.write(key + "=" + value + br);
+}
+
+document.write("<hr>");
+weather.forEach(function(value,key){
+	document.write(key + "=" + value + br);
+})	
+document.write("<hr>");
+
+let array = [
+{eng:"one", kor:"하나"},
+{eng:"two", kor:"둘"},
+{eng:"three", kor:"셋"}
+]
+
+let array_map = new Map(Object.entries(array));
+document.write(array_map.get('0').eng + ":" + array_map.get('0')['kor'] + br);
+
+let map1 = new Map([["one","하나"],["tow","둘"],["three","셋"]]);
+let map2 = new Map([["four","넷"],["five","다섯"]]);
+let totalmap = new Map([...map1,...map2]);
+document.write(totalmap.size + br);
+document.write(totalmap.get("one") + br);
+
+let set1 = new Set();
+set1.add("java").add(100).add(3.14).add([1,2,3]).add("java"); //중복불가능
+document.write(set1.size + br);
+document.write(set1.has(100)+br);
+
+let ar4 = ["java","spring","html","java","css","ai","java"];
+let armap = new Map(Object.entries(ar4)) //인덱스를 키로가져감
+document.write([...armap] + br);
+
+let array_set = function(ar){return [...new Set(ar)];}
+let result = array_set(ar4);
+document.write(result + br);
+
+let array_set2 = new Set(ar4);
+document.write([...array_set2] + br);
+
+
+</script>
+</body>
+</html>

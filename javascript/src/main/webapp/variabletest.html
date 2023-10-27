@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+
+document.write("<h3>i(var)=" + i + "</h3>");
+
+
+
+var i = 100; /*변수hoising 가능 undefined나옴*/
+j = 200;
+document.write("<h3>j=" + j);
+const k = 300; /* 상수 */
+document.write("<h3>k(const)=" + k + "</h3>");
+let g = 400;
+g = 500;
+document.write("<h3>g(let)=" + typeof(g) + "</h3>"	);
+</script>
+</body>
+</html>

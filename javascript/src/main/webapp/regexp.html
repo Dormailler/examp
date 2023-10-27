@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var br = "<br>"
+
+document.write(br);
+window.onload = function(){
+	let div = document.getElementById("here").innerHTML;
+	let div2 = document.getElementById("result");
+	//div2.innerHTML = div.indexOf("abc");
+	//정규식 /패턴양식/플래그옵션
+	let reg1 = /[abc]/gi; //abc 문자형식 맞는가 표현  플러그옵션 g 없으면 하나만 찾음 i 대소문자 모두 찾음 m 여러줄찾기
+	//[abc] a나 b나 c 
+	let reg2 = new RegExp("[abc]","gim");  // ""
+	
+	reg1 = /a[b]?c/gim; //a꼭있어야하고c로끝나야함 중간에b한개이상(+) *로바꾸면 0개도되서 ac도대상 ? 0또는1번
+	//div2.innerHTML = reg2.test(div); //true
+	div2.innerHTML = div.match(reg1); //문자열반환 split 문자열배열
+	
+}
+</script>
+<div id="here">ac 여기에는 abc를 포함한 문장이 있습니다. abbc는 알파벳 소문자입니다. abbbbbbc </div>
+<div id="result"></div>
+</body>
+</html>

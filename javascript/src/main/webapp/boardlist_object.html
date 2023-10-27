@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<input type=button id="write" value="글쓰기">
+<div id="writeform">글쓰기폼을 작성하여 글을 입력하면 저장합니다.</div>
+<div id="saveresult"></div>
+<input type=button id="output" value="게시물리스트">
+<div id="list">게시물 결과를 출력합니다.</div>
+<script type="text/javascript">
+let boardlist = [];
+function Board(number,title,content){
+	this.number = number;
+	this.title = title;
+	this.content = content;
+	this.time = new Date().toLocaleString();
+}
+document.getElementById("write").onclick= ()=>{
+	document.getElementById("writeform").innerHTML = `
+		번호 <input type = 'text' id= 'number'><br>
+		제목 <input type = 'text' id= 'title'><br>
+		내용 <input type = 'text' id= 'content'><br>
+		<input type = button id= 'save' value = '게시물저장'>
+		`;
+	document.getElementById('save').onclick = ()=>{
+		var number = document.getElementById('number').value;
+		var title = document.getElementById('title').value;
+		var content = document.getElementById('content').value;
+		if(boardlist.length == 5){
+			document.getElementById('saveresult').innerHTML = "saveresult에 더이상 게시물 저장 불가능합니다.";
+			document.getElementById('saveresult').style = "color:red;";
+		}else{
+			boardlist.push(new Board(number,title,content));
+			document.getElementById('saveresult').innerHTML = "saveresult에 게시물 " + boardlist.length + "개 저장되었습니다.";
+		};
+		
+	};
+};
+document.getElementById('output').onclick = () =>{
+	let html = "";
+	for(i of boardlist){
+		html += `<li>게시물번호: ${i.number} 제목: ${i.title} 내용: ${i.content} 작성시간: ${i.time}</li>`;
+	}
+	document.getElementById('list').innerHTML = "<ul>" + html + "</ul>";
+}
+
+</script>
+</body>
+</html>

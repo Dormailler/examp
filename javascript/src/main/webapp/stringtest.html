@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var br = "<br>";
+let str1 = "script";
+let str2 = "html";
+let str3 = '\' java script\'';
+let str4 = "\"java script\"";
+let str5 = '"java script"';
+let test = "연습";
+let str7 = '멀티캠퍼스는 기업교육 시장의 First Mover로서,\
+	 20여 년의 교육 노하우와 최신 IT기술로 업계의 Digital Transformation을 선도하며\
+		비대면 시대의 새로운 HRD 생태계를 만들어 갑니다.';
+let str8 = `멀티캠퍼스는 기업교육 시장의 First Mover로서,\
+	 20여 년의 교육 노하우와 최신 IT기술로 업계의 Digital Transformation을 선도하며\
+		비대면 시대의 새로운 HRD 생태계를 만들어 갑니다.`; //물결표시
+let str9 = `멀티캠퍼스는 기업교육 시장의 First Mover로서, ${test}\
+ 20여 년의 교육 노하우와 최신 IT기술로 업계의 Digital Transformation을 선도하며\
+	비대면 시대의 새로운 HRD 생태계를 만들어 갑니다.`;
+document.write(str7 + br);
+document.write(str9 + br);
+
+let su1 = 100;
+let su2 = new Number(100);
+
+let s1 = "문자열";
+let s2 = new String("문자열");
+document.write(typeof(s1) + ":" + typeof(s2) + br);
+if(s1==s2){document.write("같다1")}
+if(s1===s2){document.write("같다2")}
+document.write("s2의 문자열갯수=" + s2.length + br);
+
+let s3 = "java script front end";
+document.write("문자열갯수 = " + s3.length + br);
+document.write("spring 위치 = " + s3.indexOf('spring') + br);
+document.write("script 위치 = " + s3.indexOf('script') + br);
+
+if(s3.indexOf('spring') > 0){
+	//포함처리
+}else{//미포함처리
+	}
+document.write("5번인덱스(6번째등장)문자= " + s3.charAt(5) + s3[5]+ br);
+
+let s4 = "http://www.naver cloud.com/java-spring:web";
+//const result1 = s4.split(':');
+const result1 = s4.split(/:| |-|\//); // 정규표현식
+document.write(result1+ br);
+document.write(result1.join("<br>")+ br);
+
+let su5 = 100;
+document.write(typeof(su5.toString())+br);
+let su6 = 3.14;
+document.write(typeof(new String(su6)) +br);
+document.write(parseFloat("300삼백") +br);
+</script>
+</body>
+</html>

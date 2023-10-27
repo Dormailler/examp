@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+let br = "<br>";
+
+(function (){
+	document.write("무명 함수 실행" + br);
+})();
+let f = function (){
+	document.write("무명 함수 실행(변수로 취급)" + br);
+};
+f();
+f = function (){
+	document.write("또다른 함수 실행" + br);
+};
+f();
+
+
+
+</script>
+</body>
+</html>

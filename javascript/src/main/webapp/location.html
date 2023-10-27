@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 id="header">화면 정보</h1>
+<script type="text/javascript">
+document.write("<h3>화면 사용가능한 너비="+screen.availWidth + "</h3>" );
+document.write("<h3>화면 사용가능한 높이="+screen.availHeight + "</h3>" );
+
+document.write("<h3>화면 사용가능한 너비="+screen.width + "</h3>" );
+document.write("<h3>화면 사용가능한 높이="+screen.height + "</h3>" );
+
+document.write("<h3>화면 사용가능한 높이="+screen.orientation + "</h3>" );
+</script>
+
+
+<h1 id="header">브라우저 정보</h1>
+<script type="text/javascript">
+document.write("<h3>" + navigator.appCodeName + "</h3>");
+document.write("<h3>" + navigator.userAgent + "</h3>");
+document.write("<h3>" + navigator.platform + "</h3>");
+if(navigator.userAgent.indexOf("Trident") >= 0){ // /Trident/.test(navigator.userAgent)
+	document.write("<h3> ie를 사용하시는군요(브라우저를 다른 종류로 변경 권고합니다)!!!</h3>");
+}else if(navigator.userAgent.indexOf("Edge") >= 0){
+	document.write("<h3> 엣지를 사용하시는군요!!!</h3>");
+}else if(navigator.userAgent.indexOf("Chrome") >= 0){
+	document.write("<h3> 크롬을 사용하시는군요!!!</h3>");
+}
+</script>
+
+<h1 id="header">history 정보</h1>
+<a href = "javascript:history.back()">이전으로 되돌아가기(뒤로버튼)</a>
+<a href = "javascript:history.forward()">앞으로 가기(앞으로버튼)</a>
+<a href = "javascript:history.go(-1)">이전으로 되돌아가기(뒤로버튼)</a>
+<a href = "javascript:history.go(1)">앞으로 가기(앞으로버튼)</a>
+
+<h1 id="header">location(url) 정보</h1>
+
+<a href =""></a>
+<form action = "a.jsp">
+<input type = text id="name">
+<input type = button id="sendbtn" value = "전송">
+</form>
+
+<script type="text/javascript">
+//alert(history.length);
+document.write("<h3>" + location.href + "</h3>");
+document.getElementById("sendbtn").onclick = function(){
+	//location.href = "a.jsp" // a.jsp 이동후 뒤로 버튼 클릭하면 현재파일
+	//location.assign("a.jsp") // 동일? 
+	location.replace("a.jsp"); // a.jsp 이동후 뒤로 버튼 클릭하면 현재파일이전화면
+	//location.hash = "#header"; // 현재문서의 header로 이동
+}
+</script>
+</body>
+</html>

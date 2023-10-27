@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var br = "<br>"
+let result1 = 10/3;
+document.write(parseInt(result1) + br);
+document.write(parseInt(12.56) + br);
+document.write(Math.round(12.56) + br);
+document.write((10%3) + br); //정수
+document.write((5 % 1.5) + br); //실수
+
+document.write(true + true + br); 
+document.write(true + false + br); 
+document.write(false + false + br);
+
+document.write(undefined + 1 + br); //NaN
+document.write(null + 1 + br); // 1
+
+if(undefined == null){ //나옴 값만비교
+	document.write(111111111+ br);
+}
+if(undefined === null){ //안나옴 값과타입비교
+	document.write(111111111 + br);
+}
+if(100 == "100"){ // 같다
+	document.write(2222222222 + br);
+}
+if(100 === "100"){
+	document.write(333333333+ br);
+}
+let obj = {};
+let obj2 = new Object();
+function Member(id,password){
+	this.id = id;
+	this.password = password;
+}
+let obj3 = new Member("script","1234");
+document.write("obj타입=" + Object.prototype.toString.call(obj) + br);
+document.write("obj2타입=" + Object.prototype.toString.call(obj2) + br);
+document.write("obj3타입=" + Object.prototype.toString.call(obj3) + br);
+document.write("obj3타입=" + (obj3 instanceof Member) + br);
+
+document.write("난수발생=" + (parseInt(Math.random()*100 + 1))+ br);
+</script>
+
+</body>
+</html>

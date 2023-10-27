@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var br = "<br>";
+document.write(br);
+
+let ar1 = [1,2,3,100,5]; 
+let ar2 = new Array();
+
+/* ar1.push(450);
+ar1.unshift(10); // 맨앞 추가
+ar1[7] = "값추가";
+delete ar1[7];
+ar1.shift();
+ar1.pop();
+document.write(ar1 + br);
+ar1.splice(1,2); // 1번 인덱스부터 2개 삭제
+ar1.splice(1,0,"추가"); //1번인덱스에 "추가" 추가
+document.write(ar1.length + br);
+document.write("1번 인덱스부터 2개 삭제 후 " +  ar1 + br);
+document.write(ar1.join("<br>")+br); //배열을 줄바꿔서 출력
+
+let result = ar1.slice(1,4);
+document.write(result.length + br);
+document.write("1~4 slice후 " +  result + br); */
+
+let ar3 = [1,2,3,100,5];
+ar3.sort(); //문자로 생각하고정렬 1 100 2 3 5
+document.write("그냥정렬이후 = " + ar3 + br);
+
+ar3.sort(function(i,j){return i-j}); //매개변수로 함수 지정함수 = 고차함수
+// f > 0 순서변경
+// f <= 0 변경x
+document.write("오름차순정렬이후 = " + ar3 + br);
+
+ar3.sort(function(i,j){return j-i});
+document.write("내림차순정렬이후 = " + ar3 + br);
+
+let result2 = ar1.concat(['java','script']) // 배열 합침
+document.write("concat이후 = " + result2 + br);
+
+let isJava = result2.includes('java'); //포함여부
+document.write(isJava + br);
+
+let isJava1 = result2.indexOf('java'); //포함위치 없으면 -1
+document.write(isJava1 + br);
+
+let ar4 =["java","spring","html","java","css","ai","java"];
+let index = 0;
+while(ar4.includes('java')){
+	index = ar4.indexOf('java');
+	ar4.splice(index,1);
+}
+document.write(ar4 + br);
+
+let items = ['item1','item2','item3'];
+let copy_items = [];
+for(let i =0; i<items.length; i++){
+	copy_items.push(items[i]);
+}
+items.forEach(function(item){copy_items.push(item);})
+document.write(copy_items + br);
+
+items.forEach(function(item,index,itens){
+	items[index] = item.toUpperCase();
+})
+document.write(items + br);
+
+let numbers = [1,4,9,16,25];
+document.write("sqrt실행이전 = " + numbers + br);
+let roots = numbers.map(Math.sqrt); // 새로운 배열 만들기
+document.write("sqrt실행이후 = " + numbers + br);
+document.write("sqrt실행이후 = " + roots + br);
+
+let strings = ['1','4','9','16','25'];
+let str_num = strings.map(s => parseInt(s,10));
+document.write("parseint변환이후 = "+ str_num + br);
+
+items = ['item1','item2','item3'];
+let lis = items.map(function(i){
+	return "<li>" + i + "</li>";
+})
+document.write("<ul>" + lis + "</ul>");
+
+let two = [[1,2,3],[4,5,6],[7,8,9]];
+two.push([1,1,1]);
+
+let two_const = new Array(3);
+for(let i = 0 ; i< two_const.length; i++){
+	two_const[i] = new Array(3);
+	for(let j = 0; j < two_const[i].length; j++){
+		two_const[i][j] = i*j;
+	}
+}
+document.write(two_const + "<br>");
+
+let obj = {'0':1,'1':10,'length':10};
+
+/* let [i,j] = [1,2];
+document.write(i + ":" + j + br);
+[i,j] = [j,i];
+document.write(i + ":" + j + br); */
+
+let [i,j,...k] = [10,20,30,40,50];
+
+function test(i,j){
+	return [i+j, i-j, i*j, i/j];
+}
+/* let arr = test(10,2);
+let [a,b,c,d] = test(10,5); */
+
+let {a:x,b:y} = {a:100,b:200}; //100,200
+console.log(x + ":" + y + br);
+
+let st1 = "javascript";
+let result1 = [..."javascript"];
+document.write(result1 + br);
+
+function test2(x,y,z){
+	return x+y+z;
+}
+let result3 = test2(...[10,20,30]);
+document.write(result3 + br);
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+let br = "<br>"
+function f1(){
+	document.write("함수 출력" + br);
+}
+function Employee(id,name,salary){
+		this.id=id;
+		this.name="name";
+		this.salary=salary;
+		this.print = function(){
+			document.write("1");
+		}
+}
+emp1 = new Employee(100,"잇가원",56700.00);
+let emp2 = new Employee(200,"김대리",78000.00);
+
+
+
+for(prop in emp1){document.write(emp1[prop] + br);}
+document.write("<hr>" + br)
+for(prop in emp2){document.write(emp2[prop] + br);}
+</script>
+</body>
+</html>

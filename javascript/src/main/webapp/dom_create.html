@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var br = "<br>";
+window.onload = function(){
+	let imgtag = document.createElement("img");
+	//imgtag.src = "/html/images/html5.jpg";
+	//imgtag.setAttribute("src","/html/images/html5.jpg");
+	imgtag.setAttribute("alt","html5 로고 이미지가 등장합니다.");
+	imgtag.setAttribute("id","newimg");
+	if(!imgtag.hasAttribute("src")){
+		imgtag.setAttribute("src","/html/images/google.png");
+	}
+	alert(imgtag.src + "" + imgtag.getAttribute("src"));
+	
+	document.querySelector("#create").appendChild(imgtag);
+	//document.querySelector("#create").innerHTML = "";
+	/* document.querySelector("#create").appendChild(imgtag.cloneNode());
+	document.querySelector("#create").removeChild(imgtag); */
+	//document.querySelector("#create").after(imgtag);
+	let imgt = document.getElementById("newimg");
+	imgt.addEventListener('click',function(){
+		this.style.width = "200px";
+		imgt.style.height = "100px";
+	});
+	imgt.addEventListener('click',function(){
+		this.src = "/html/images/drinks.jpg";
+	});
+	imgt.addEventListener('click',function(){
+		document.querySelector("#create").appendChild(imgt.cloneNode());
+	});
+}
+</script>
+<div id = "create" style="border:2px solid red">이미지태그</div>
+</body>
+</html>

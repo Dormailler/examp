@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+class Person{
+	#salary; // consrtructor 외부 영역, 변수초기화값 없음 #선언 private
+	constructor(name,age,gender){
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.#salary = 10000;
+		Person.personcount++;
+	}
+	//prototype
+	print(){
+		document.write("이름 = " + this.name + ", 나이 = " + this.age + ", 성별 = " + this.gender + "<br>" );
+	}
+	set pay(salary){this.#salary += salary;}
+	get pay(){return this.#salary;}
+	
+	static count(){
+		return Person.personcount;
+	}
+}
+Person.personcount = 0; //Person클래스내부 static변수 추가
+document.write("생성한객체수=" + Person.count() + "<br>");
+
+let p1 = new Person("이철수",30,"남");
+p1.print();
+document.write("생성한객체수=" + Person.count() + "<br>");
+p1.pay = 5000; //set호출
+document.write("급여 = " + p1.pay + "<br>"); //get 호출
+let p2 = new Person("김영희",20,"여");
+document.write("생성한객체수=" + Person.personcount + "<br>");
+p2.print();
+document.write("급여 = " + p2.pay + "<br>");
+
+let p3 = new Person("박병철",40,"남");
+document.write("생성한객체수=" + Person.personcount + "<br>");
+p3.print();
+//document.write("급여 = " + p2.#salary + "<br>");
+</script>
+</body>
+</html>

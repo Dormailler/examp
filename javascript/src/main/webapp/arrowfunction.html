@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+function i(j,k){
+	let result = j+k;
+	return result;
+}
+document.write(i(10,20)+ "<br>");
+
+document.write(((j,k)=>{
+	let result = j+k;
+	return result;
+})(10,20)+"<br>");
+
+let arrow2 = i=>i+i;
+document.write(arrow2(10)+"<br>");
+
+let arrow3 = ()=>10+10;
+document.write(arrow3()+"<br>");
+
+function fi(j,k){
+	//전달받은 변수 모두 출력
+	let result = 0;
+	for(a in arguments){ // arrow함수에서는불가?
+		document.write("a " + a + " arguments[a] " + arguments[a] + "<br>");
+		result += arguments[a]
+	}
+	return result;
+}
+document.write("fi(10,20)= " + fi(10,20)+ "<br>");
+document.write("fi(10,20,4,5,6,7)= " + fi(10,20,4,5,6,7)+ "<br>");
+
+let arrow4 = (...c)=>{ // 함수(a,b,...c) ...변수명- rest 매개변수(나머지매개변수)
+	//전달받은 변수 모두 출력
+	let result = 0;
+	for(a in c){
+		document.write("a " + a + " c[a] " + c[a] + "<br>");
+		result += c[a]
+	}
+	return result;
+}
+document.write("arrow4(10,20)= " + arrow4(10,20)+ "<br>");
+document.write("arrow4(10,20,4,5,6,7)= " + arrow4(10,20,4,5,6,7)+ "<br>");
+
+const emp = {
+	name : "홍길동",
+	tellName : function(){
+		const inner = ()=>{
+			document.write(this.name + "<br>");
+		}
+		inner();
+	}	
+};
+emp.tellName();
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+onload = function(){
+	let canvas = document.getElementById('mycanvas');
+	let ctx = canvas.getContext("2d");
+	/* ctx.strokeRect(50,50,20,20); // 위치(x,y) 크기(가로,세로)
+	ctx.fillRect(50,50,200,100);
+	ctx.clearRect(50,50,200,100); */
+	//삼각형
+	ctx.beginPath();
+	ctx.moveTo(50,50);//좌표이동
+	ctx.lineTo(150,150);
+	ctx.lineTo(50,150);
+	ctx.closePath();
+	ctx.stroke();
+	//원
+	ctx.beginPath();
+	ctx.arc(100,100,50, Math.PI/2,Math.PI,false); // 중심 x, y, 반지름크기, 원시작위치 크기(0(3시시작)~pi*2 최대), 방향
+	ctx.closePath();
+	ctx.fill();
+	//텍스트
+	//ctx.strokeText("텍스트내용",x,y)
+/* 	ctx.font = "40px serif"; 
+	ctx.strokeText("Hello Canvas",canvas.width/2-100,180);
+	ctx.fillText("Hello Canvas",canvas.width/2-100,220); */
+	//이미지
+	/* let myimage = new Image();
+	myimage.src = "/html/images/drinks.jpg"; */
+	//이미지경로 http://localhost:8081/html/images/drinks.jpg
+	//현재파일 http://localhost:8081/javascript/canvas.html
+	//ctx.drawImage(이미지객체, x,y,가로크기,세로크기);
+	/* myimage.onload = function(){ // 이미지가 로드된 후에 실행 크기설정안하면 기본크기
+		ctx.drawImage(myimage, 0,0,mycanvas.width,mycanvas.height);
+	} */
+	//텍스트
+	/* ctx.strokeStyle ="red";
+	ctx.fillStyle = "blue";
+	ctx.lineWidth = 10;
+	ctx.font = "40px serif"; 
+	ctx.strokeText("Hello Canvas",canvas.width/2-100,180);
+	ctx.fillText("Hello Canvas",canvas.width/2-100,220); */
+	
+	//이미지2
+	let myimage = new Image();
+	myimage.src = "/html/images/html5.jpg";
+	myimage.onload = function(){ // 이미지가 로드된 후에 실행
+		ctx.drawImage(myimage, 0,0);
+		let cutimage = ctx.getImageData(0,50,myimage.width,50); //cut영역
+		
+		ctx.clearRect(0,50,myimage.width,50);	
+		//색상 반전
+		//image pixel(rgba) 점하나당 4개씩
+		for(let i = 0; i< cutimage.data.length; i++){
+			if(i % 4 != 3){
+				cutimage.data[i] = 255 - cutimage.data[i];
+			}
+		}
+		ctx.putImageData(cutimage,200,100); //paste영역(대상,위치)
+	}
+}
+var br = "<br>";
+document.write(br);
+</script>
+<canvas id="mycanvas" width=640 height = 400 style ="border : 2px solid blue"></canvas>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var br = "<br>";
+document.write(br);
+let emp = {
+		id:100,
+		name:"이사원",
+		title : "사원",
+		dept : "교육부",
+		print : function(){
+			
+		}
+}
+document.write(emp.id + br);
+emp.id = 200;
+emp.salary = 45600.99 // 프로퍼티 추가
+delete emp.salary; // 프로퍼티 삭제
+
+/* Object.preventExtensions(emp); // 프로퍼티추가불가
+emp.salary = 45600.99;
+document.write("salary" in emp); */
+
+/* Object.seal(emp); //프로퍼티 추가삭제 불가
+emp.salary = 45600.99;
+document.write(("salary" in emp)+br);
+delete emp.id;
+document.write(("id" in emp)+br); */
+
+Object.freeze(emp); //프로피터 추가삭제수정 불가
+emp.name = "이대리"; //수정무시
+document.write(emp.name+br);
+emp.salary = 45600.99;
+document.write(("salary" in emp)+br);
+delete emp.id;
+document.write(("id" in emp)+br);
+
+document.write(emp.hasOwnProperty('id') + br);
+
+for(i in emp){
+	document.write(i + ":" + emp[i] + ":");
+}
+document.write(br);
+
+document.write(Object.keys(emp) + br);
+document.write(Object.values(emp) + br);
+document.write("<hr>");
+
+document.write(Object.getOwnPropertyNames(emp) + br);
+</script>
+</body>
+</html>

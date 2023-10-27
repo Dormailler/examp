@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+    border: 2px solid lightgreen;
+}
+table td{
+border:1px solid lightblue;
+}
+</style>
+<script type="text/javascript">
+let kor = -1;
+let mat = -1;
+let eng = -1;
+while(kor<0){kor = parseFloat(prompt("국어점수 입력"));}
+while(mat<0){mat = parseFloat(prompt("수학점수 입력"));}
+while(eng<0){eng = parseFloat(prompt("영어점수 입력"));}
+
+let y = confirm("위의 점수를 공개하시겠습니까?");
+if(y){
+	kor = Math.min(kor+10,100);
+	mat = Math.min(mat+10,100);
+	eng = Math.min(eng+10,100);
+}
+let sum = (kor+mat+eng).toFixed(2);
+let mean = parseInt(sum/3);
+let grade = "";
+if(mean >= 80){grade = "우수"}
+else if(mean >= 60){grade = "보통"}
+else if(mean >= 40){grade = "노력"}
+else{grade = "많이 분발"}
+document.write(`
+<table>
+<tr><td>국어</td><td>${kor}</td></tr>
+<tr><td>수학</td><td>${mat}</td></tr>
+<tr><td>영어</td><td>${eng}</td></tr>
+<tr><td>공개여부</td><td>${y}</td></tr>
+<tr><td>총점</td><td>${sum}</td></tr>
+<tr><td>평균</td><td>${mean}</td></tr>
+<tr><td>등급</td><td>${grade}</td></tr>
+</table>`);
+</script>
+</head>
+<body>
+<!-- 100 60 80   
+ 100점 60점 80점    
+ -100 -80 -60 200 300 - 양수 입력까지 반복       
+  점수100->처리X 
+  1. prompt 3개 작성(0-100)    
+  국어 : xxx      
+  수학 : xxx      
+  영어:xxx  
+  2. confirm 1개 작성  위의 점수를 공개하시겠습니까? 확인 / 취소 
+  3. 점수 계산 	총점 / 정수평균 / 등급 출력 	
+  총점 	국어 + 수학 + 영어 	(단 위의 점수를 공개하시겠습니까? 확인버튼 클릭시 각 과목당 10점 가산-최고점 100점 ) 
+  	(단 위의 점수를 공개하시겠습니까? 취소버튼 클릭시 각 과목당 가산점 없음 ) 	
+  	정수평균 10 / 3 == 3.333 	80점 이상 "우수" 	60점 이상 "보통" 	40점 이상 "노력" 	
+  	그외에 "많이 분발" 테이블태그 국어 입력한국어점수 수학 입력한수학점수 영어 입력한영어점수 총점 총점(소수1자리까지) 
+  	평균 정수로 등급 등급처리결과문자열 
+  테이블태그
+  국어 입력한국어점수
+  수학 입력한수학점수
+  영어 입력한영어점수
+  총점 총점(소수1자리까지)
+  평균 정수로
+  등급 등급처리결과문자열 -->
+
+  
+</body>
+</html>

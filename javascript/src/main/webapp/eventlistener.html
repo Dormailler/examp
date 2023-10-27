@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+let second,stop;
+function start(){ // 로딩됐을때 실행 
+	second = document.getElementById('second');
+	second.addEventListener('click',second_f1);
+	second.addEventListener('click',second_f2);
+	stop = document.getElementById("stop");
+	stop.addEventListener('click',stop1);
+} 
+function second_f1(){alert(second.nodeName + ":" + second.type);}
+function second_f2(){alert("버튼 클릭시 동작");}
+function stop1(){second.removeEventListener('click',second_f1);}
+window.addEventListener('load',start);
+//174p onxxx 종류
+
+</script>
+<input id="second" type = button value="클릭2">
+<input id="stop" type = button value="클릭2이벤트제거">
+</body>
+</html>

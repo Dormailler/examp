@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var br = "<br>";
+//window내장객체포함 = 전역함수
+function test1(){
+	document.write(Object.prototype.toString.call(this)+br);
+	document.write(this.constructor+br);
+	document.write((this instanceof Window)+br);
+}
+test1();
+
+let obj = {name:"홍길동", test2:test1,test3:function(){this.name}}
+obj.test2();
+
+//이벤트 처리 함수 내부 this 이벤트발생해당 html태그
+onload = function(){
+	document.getElementById("second").onclick = function(){
+		document.getElementById("result").innerHTML = 
+			this.value;
+	}
+}
+</script>
+
+<input id="second" type = button value="클릭2">
+<div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="message"></div>
+<div id="valid"></div>
+<script type="text/javascript">
+document.getElementById('message').innerHTML = "새창이 열렸습니다.";
+let userlist = ['java','script','spring'];
+let userid = opener.document.getElementById('userid').value; //부모창 텍스트만갖고오려면value
+let isValid = false;
+for(let i = 0; i <userlist.length; i++){
+	if(userlist[i] == userid){isValid = true; break;}
+}
+if(isValid == true){
+	document.getElementById('valid').innerHTML = userid + "사용 가능.";
+}
+else{
+	document.getElementById('valid').innerHTML = userid + "사용 불가능.";
+}
+</script>
+</body>
+</html>

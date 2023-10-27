@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var br = "<br>"
+document.write(br);
+function f1(p){
+	if(typeof(p)== 'function') p();
+	else document.write("실행불가"+br)
+}
+function f2(){
+	document.write("f2실행" +br);
+}
+/* f1(f2);
+let v1 = 100;
+f1(v1); */
+setTimeout(f2,2000);
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+var br = "<br>";
+function Circle(x,y,r) {
+	this.x=x;
+	this.y=y;
+	this.r=r;
+}
+Circle.prototype.area = function(){
+	document.write(`원의면적(${this.x},${this.y},${this.r})= ${Math.PI*this.r*this.r}${br}`);
+}
+Circle.prototype.getName = function(){
+	document.write("circle객체-프로토타입<br>");
+}
+
+let c1 = new Circle(10,10,5);
+let c2 = new Circle(50,50,8);
+let c3 = new Circle(80,80,4);
+c1.area();
+c1.getName();
+c2.area();
+c2.getName();
+c3.area();
+c3.getName();
+
+function Oval(name){
+	this.name = name;
+}
+Oval.prototype = Object.create(Circle);
+
+/* let o1 = new Oval("타원1");
+o1.getName();
+let o2 = new Oval("타원2");
+o2.getName(); */
+
+/* class Circle{
+	constructor(x,y,r){
+		this.x=x;
+		this.y=y;
+		this.r=r;
+	}
+	getName(){}
+	area(){}
+} */
+
+document.write(Object.prototype.toString.call(c1)+"<br>");
+document.write(c1.constructor+"<br>");
+document.write((c1 instanceof Circle)+"<br>");
+document.write(Circle.prototype.isPrototypeOf(c1)+"<br>")
+
+document.write("<hr>");
+//상속 확인
+function Oval(x,y,r,name){
+	this.name = name;
+	Circle.apply(this,arguments); // Circle.apply(호출주체객체,매개변수배열(다들어가도앞에서부터씀));
+}
+Oval.prototype = Object.create(Circle.prototype);
+
+let o1 = new Oval(100,200,50,"타원1");
+o1.getName(); //생성자 내부 메소드
+o1.area(); // protorype 메소드
+
+document.write("<hr>");
+/* let myperson = {
+		_name : "--",
+		set name(n){_name = n;},
+		get name(){return _name;}
+} */
+let myperson = (function(){
+		let _name = "--";
+		return{
+			set name(n){_name = n;},
+			get name(){return _name;}
+		}//즉각실행 리턴값 객체(set/get) _name 직접 접근 불가
+		
+})();
+document.write(myperson._name + "<br>"); //undefined
+/* myperson.setName();
+document.write(myperson.getName()+ "<br>"); */
+
+myperson.name = "수정합니다"; //set name(n){_name = n;} 실행 호출
+document.write(myperson.name + "<br>"); //get name(){return _name;} 실행 호출
+</script>
+</body>
+</html>

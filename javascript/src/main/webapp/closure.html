@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+function makeCounter() {
+	let count = 0;
+	return count++;
+}
+
+let c1 = makeCounter();
+document.write(c1 + "<br>"); //0
+document.write(c1 + "<br>"); //0
+document.write(c1 + "<br>"); //0
+
+function makeCounter2() {
+	let count = 0;
+	return function(){
+		return count++;
+	}
+	
+}
+
+let c2 = makeCounter2();
+document.write(c2() + "<br>"); //0
+document.write(c2() + "<br>"); //1
+document.write(c2() + "<br>"); //2
+
+window.onload = function(){
+	let count = 0;
+	document.getElementById("add").onclick = 
+		function(){
+		document.getElementById("result").innerHTML = "ADD버튼을 "+ ++count +"번 클릭했습니다.";
+	}
+	let numbers = document.getElementsByClassName("numbers");
+	/* for(let i = 0 ; i <numbers.length; i++){ //i 기억 전달
+		numbers[i].onclick = function(){
+			document.getElementById("result").innerHTML = i; //0~4
+				//numbers[i].value + "버튼을 클릭했습니다.";
+		}
+		
+	} */
+	//이벤트2.dom배열
+	/* for(var i = 0 ; i <numbers.length; i++){
+		numbers[i].onclick = function(){ 
+			document.getElementById("result").innerHTML = i; //5만나옴
+				//numbers[i].value + "버튼을 클릭했습니다.";
+		}
+		
+	} */
+	for(var i = 0 ; i <numbers.length; i++){
+		(function(index){ 
+			numbers[index].onclick = function(){ 
+				document.getElementById("result").innerHTML = index; //5만나옴
+					//numbers[i].value + "버튼을 클릭했습니다.";
+			}
+		})(i);
+	}
+	 
+}
+
+</script>
+<input type= button id="add" value="값증가">
+<div id="result"></div>
+
+<input type= button class="numbers" value="1">
+<input type= button class="numbers" value="2">
+<input type= button class="numbers" value="3">
+<input type= button class="numbers" value="4">
+<input type= button class="numbers" value="5">
+</body>
+</html>

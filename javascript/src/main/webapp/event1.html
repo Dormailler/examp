@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+function display1(){ // 위에있어도됨
+	alert("클릭했어요.");
+}
+window.onload = function(){ // 로딩됐을때 실행 
+	
+	let second = document.getElementById('second');
+	second.onclick = display1; //위에있으면안됨
+	let stop = document.getElementById("stop");
+	stop.onclick = function(){
+		second.onclick = null;
+	}
+}
+//174p onxxx 종류
+
+</script>
+<input id = "first" type = "button" value="클릭1" onclick="display1()">
+<input id="second" type = button value="클릭2">
+<input id="stop" type = button value="스톱">
+</body>
+</html>
